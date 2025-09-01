@@ -1,5 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { FaLinkedin, FaGithub, FaTwitter, FaInstagram, FaEnvelope } from "react-icons/fa";
+import { FaLinkedin, FaGithub, FaTwitter, FaEnvelope } from "react-icons/fa";
+import { FaReact, FaNodeJs, FaPython } from "react-icons/fa";
+import { SiMongodb, SiFlask, SiNumpy, SiSocketdotio, SiVercel } from "react-icons/si";
 
 //- Global Styles for animations
 const GlobalStyles = () => (
@@ -393,6 +395,30 @@ const ProjectCard = ({ title, description, link, technologies, delay }) => {
     );
 };
 
+const techIcons = {
+  React: <FaReact className="text-sky-400 text-lg" />,
+  "Node.js": <FaNodeJs className="text-green-500 text-lg" />,
+  MongoDB: <SiMongodb className="text-green-400 text-lg" />,
+  Python: <FaPython className="text-yellow-400 text-lg" />,
+  Flask: <SiFlask className="text-gray-300 text-lg" />,
+  NumPy: <SiNumpy className="text-blue-400 text-lg" />,
+  "Machine Learning": (
+    <svg className="w-5 h-5 text-purple-400" fill="currentColor" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" fill="none"/>
+      <path d="M12 6v6l4 2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+    </svg>
+  ),
+  "Socket.io": <SiSocketdotio className="text-gray-400 text-lg" />,
+  Vercel: <SiVercel className="text-white text-lg" />,
+  "MERN Stack": (
+    <span className="flex gap-1 items-center">
+      <FaReact className="text-sky-400" />
+      <FaNodeJs className="text-green-500" />
+      <SiMongodb className="text-green-400" />
+    </span>
+  ),
+};
+
 
 const Projects = () => {
     const projectData = [
@@ -403,19 +429,57 @@ const Projects = () => {
         { title: "Stock Market Predictor App", description: "A web app integrating ML models with a React frontend and Flask backend to forecast stock prices and provide real-time updates.", link: "https://github.com/Ayushmaan218/stockMarketApp", technologies: ["React", "Flask", "Machine Learning"] },
         { title: "Neural Network from Scratch", description: "Built a neural network from the ground up using only NumPy to classify handwritten digits from the MNIST dataset. Achieved 90%+ accuracy.", link: "https://github.com/Ayushmaan218/NeuralNetworkFromscratch", technologies: ["NumPy", "Python"] },
     ];
+
     const [setTitleRef, isTitleVisible] = useAnimateOnScroll();
+
+    const ProjectCard = ({ title, description, link, technologies, delay }) => {
+  return (
+    <a
+      href={link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="block bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-2xl hover:bg-gray-700 transition-all duration-300 transform hover:-translate-y-1"
+      style={{ transitionDelay: `${delay}ms` }}
+    >
+      <h3 className="text-xl font-semibold mb-2">{title}</h3>
+      <p className="text-gray-300 mb-3">{description}</p>
+      <div className="flex flex-wrap gap-3">
+        {technologies.map((tech, i) => (
+          <div
+            key={i}
+            className="flex items-center gap-2 px-3 py-1 bg-gray-700 rounded-md text-gray-200 text-sm"
+          >
+            {techIcons[tech] || null}
+            <span>{tech}</span>
+          </div>
+        ))}
+      </div>
+    </a>
+  );
+};
+
 
     return (
         <section id="projects" className="py-20 bg-gray-900 text-white">
             <div className="container mx-auto px-6">
-                <h2 ref={setTitleRef} className={`text-4xl font-bold text-center mb-12 transition-all duration-700 ${isTitleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>Projects</h2>
+                <h2
+                    ref={setTitleRef}
+                    className={`text-4xl font-bold text-center mb-12 transition-all duration-700 ${
+                        isTitleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                    }`}
+                >
+                    Projects
+                </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {projectData.map((p, index) => <ProjectCard key={p.title} {...p} delay={index * 150} />)}
+                    {projectData.map((p, index) => (
+                        <ProjectCard key={p.title} {...p} delay={index * 150} />
+                    ))}
                 </div>
             </div>
         </section>
     );
 };
+
 
 const ServiceCard = ({ title, description, delay }) => {
     const [setRef, isVisible] = useAnimateOnScroll();
