@@ -422,6 +422,7 @@ const techIcons = {
 
 const Projects = () => {
     const projectData = [
+        { title: "Chat App", description: "A real-time chat application featuring private and public rooms, media sharing (images, videos, files), and instant messaging using Socket.io. Built with the MERN stack for seamless communication and scalability.", link: "https://fullstack-chat-app-5uog.onrender.com/", technologies: ["MERN Stack", "Socket.io", "Express", "MongoDB"] },
         { title: "Fake News Detector", description: "A machine learning model built to identify and classify fake news articles using natural language processing techniques.", link: "https://fakenewsfrontend.onrender.com/", technologies: ["Python", "Machine Learning"] },
         { title: "Shop Sphere", description: "A full-featured e-commerce platform built with modern web technologies, offering a seamless shopping experience.", link: "https://shop-sphere-iota-beryl.vercel.app/", technologies: ["React", "Node.js", "MongoDB"] },
         { title: "Maan Meals", description: "A responsive food ordering application that allows users to browse menus and place orders with ease.", link: "https://maan-meals.vercel.app/", technologies: ["React", "Vercel"] },
