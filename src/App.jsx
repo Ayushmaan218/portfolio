@@ -422,11 +422,11 @@ const techIcons = {
 
 const Projects = () => {
     const projectData = [
+        { title: "Copy Ninja", description: "A secure, real-time web app for sharing text and files (documents, images, ZIP) without requiring login. Implemented Socket.io for instant communication.", link: "https://copy-ninja-io.onrender.com/", technologies: ["MERN Stack", "Socket.io"] },
         { title: "Chat App", description: "A real-time chat application featuring private and public rooms, media sharing (images, videos, files), and instant messaging using Socket.io. Built with the MERN stack for seamless communication and scalability.", link: "https://fullstack-chat-app-5uog.onrender.com/", technologies: ["MERN Stack", "Socket.io", "Express", "MongoDB"] },
         { title: "Fake News Detector", description: "A machine learning model built to identify and classify fake news articles using natural language processing techniques.", link: "https://fakenewsfrontend.onrender.com/", technologies: ["Python", "Machine Learning"] },
         { title: "Shop Sphere", description: "A full-featured e-commerce platform built with modern web technologies, offering a seamless shopping experience.", link: "https://shop-sphere-iota-beryl.vercel.app/", technologies: ["React", "Node.js", "MongoDB"] },
         { title: "Maan Meals", description: "A responsive food ordering application that allows users to browse menus and place orders with ease.", link: "https://maan-meals.vercel.app/", technologies: ["React", "Vercel"] },
-        { title: "Copy Ninja", description: "A secure, real-time web app for sharing text and files (documents, images, ZIP) without requiring login. Implemented Socket.io for instant communication.", link: "https://copy-ninja-io.onrender.com/", technologies: ["MERN Stack", "Socket.io"] },
         { title: "Stock Market Predictor App", description: "A web app integrating ML models with a React frontend and Flask backend to forecast stock prices and provide real-time updates.", link: "https://github.com/Ayushmaan218/stockMarketApp", technologies: ["React", "Flask", "Machine Learning"] },
         { title: "Neural Network from Scratch", description: "Built a neural network from the ground up using only NumPy to classify handwritten digits from the MNIST dataset. Achieved 90%+ accuracy.", link: "https://github.com/Ayushmaan218/NeuralNetworkFromscratch", technologies: ["NumPy", "Python"] },
     ];
