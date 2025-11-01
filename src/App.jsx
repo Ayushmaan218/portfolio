@@ -422,7 +422,7 @@ const techIcons = {
 
 const Projects = () => {
     const projectData = [
-        { title: "Codexly", description: "An interactive online code compiler and sharing platform where users can write, run, and share code snippets in real time. Includes a community feature for commenting, discussing, and collaborating on code projects.", link: "https://codexly.vercel.app/", technologies: [Next.js", "Clerk", "Convex"] },
+        { title: "Codexly", description: "An interactive online code compiler and sharing platform where users can write, run, and share code snippets in real time. Includes a community feature for commenting, discussing, and collaborating on code projects.", link: "https://codexly.vercel.app/", technologies: ["Next.js", "Clerk", "Convex"] },
         { title: "Copy Ninja", description: "A secure, real-time web app for sharing text and files (documents, images, ZIP) without requiring login. Implemented Socket.io for instant communication.", link: "https://copy-ninja-io.onrender.com/", technologies: ["MERN Stack", "Socket.io"] },
         { title: "Chat App", description: "A real-time chat application featuring private and public rooms, media sharing (images, videos, files), and instant messaging using Socket.io. Built with the MERN stack for seamless communication and scalability.", link: "https://fullstack-chat-app-5uog.onrender.com/", technologies: ["MERN Stack", "Socket.io", "Express", "MongoDB"] },
         { title: "Fake News Detector", description: "A machine learning model built to identify and classify fake news articles using natural language processing techniques.", link: "https://fakenewsfrontend.onrender.com/", technologies: ["Python", "Machine Learning"] },
