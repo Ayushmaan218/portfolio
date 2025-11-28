@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import {
     FaPython, FaJsSquare, FaJava, FaReact, FaNodeJs, FaGitAlt, FaDatabase
 } from 'react-icons/fa';
