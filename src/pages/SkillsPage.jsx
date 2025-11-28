@@ -1,5 +1,5 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { AnimatePresence } from 'framer-motion';
 import {
     FaPython, FaJsSquare, FaJava, FaReact, FaNodeJs, FaGitAlt, FaDatabase
 } from 'react-icons/fa';
@@ -76,6 +76,24 @@ const ProjectHighlight = ({ title, description }) => (
 );
 
 const SkillsPage = () => {
+    const titles = [
+        "Frontend Dev",
+        "Backend Dev",
+        "Full-Stack Dev",
+        "Machine Learning",
+        "AI Enthusiast",
+        "Tech Enthusiast"
+    ];
+    const [titleIndex, setTitleIndex] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setTitleIndex((prevIndex) => (prevIndex + 1) % titles.length);
+        }, 2500); // Change every 2.5 seconds
+
+        return () => clearInterval(interval);
+    }, [titles.length]);
+
     return (
         <div className="min-h-screen bg-gray-50 dark:bg-gray-900 pt-20 transition-colors duration-300">
             <div className="container mx-auto px-6 py-12">
@@ -86,15 +104,23 @@ const SkillsPage = () => {
                     transition={{ duration: 0.6 }}
                     className="text-center mb-16"
                 >
-                    <h1 className="text-5xl md:text-6xl font-extrabold text-gray-900 dark:text-white mb-4">
+                    <h1 className="text-5xl md:text-6xl font-extrabold text-gray-900 dark:text-white mb-6">
                         Ayushmaan Mohanty
                     </h1>
-                    <p className="text-2xl text-indigo-600 dark:text-indigo-400 font-semibold mb-2">
-                        Complete Skill Set
-                    </p>
-                    <p className="text-lg text-gray-600 dark:text-gray-400">
-                        Full-Stack Developer | Machine Learning Enthusiast | Real-Time Systems Expert
-                    </p>
+                    <div className="h-8 relative flex justify-center items-center overflow-hidden">
+                        <AnimatePresence mode="wait">
+                            <motion.p
+                                key={titles[titleIndex]}
+                                initial={{ y: 20, opacity: 0 }}
+                                animate={{ y: 0, opacity: 1 }}
+                                exit={{ y: -20, opacity: 0 }}
+                                transition={{ duration: 0.5 }}
+                                className="text-lg text-gray-600 dark:text-gray-400 absolute"
+                            >
+                                {titles[titleIndex]}
+                            </motion.p>
+                        </AnimatePresence>
+                    </div>
                 </motion.div>
 
                 {/* Programming Languages */}

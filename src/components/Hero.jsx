@@ -1,18 +1,25 @@
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import {  AnimatePresence } from 'framer-motion';
 import ParticleBackground from './ParticleBackground';
 
 const Hero = () => {
-    const titles = ["Frontend Dev", "Backend", "Full Stack"];
+    const titles = [
+        "Frontend Dev",
+        "Backend Dev",
+        "Full-Stack Dev",
+        "Machine Learning",
+        "AI Enthusiast",
+        "Tech Enthusiast"
+    ];
     const [index, setIndex] = useState(0);
 
     useEffect(() => {
         const interval = setInterval(() => {
             setIndex((prevIndex) => (prevIndex + 1) % titles.length);
-        }, 3000); // Change every 3 seconds
+        }, 2500); // Change every 2.5 seconds
 
         return () => clearInterval(interval);
-    }, []);
+    }, [titles.length]);
 
     return (
         <section id="home" className="min-h-screen flex items-center bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white relative overflow-hidden transition-colors duration-300">
@@ -46,9 +53,9 @@ const Hero = () => {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 1, duration: 0.8 }}
-                    className="mt-4 text-gray-600 dark:text-gray-400"
+                    className="mt-4 text-xl text-indigo-500 dark:text-indigo-400 font-medium"
                 >
-                    Machine Learning Enthusiast
+                    Complete Skill Set
                 </motion.p>
             </div>
         </section>
